@@ -1,0 +1,12 @@
+/* Google Font's Droid Sans */
+@font-face {
+  font-family: 'Sans-Serif, Helvetica';
+  font-style: normal;
+  font-weight: 400;
+}
+/* Google Font's Droid Sans Bold */
+@font-face {
+  font-family: 'Sans-Serif, Helvetica';
+  font-style: normal;
+  font-weight: 700;
+}

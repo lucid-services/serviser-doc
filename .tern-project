@@ -1,0 +1,19 @@
+{
+  "ecmaVersion": 5,
+  "libs": [
+  ],
+  "dependencyBudget": 50000,
+  "loadEagerly": [
+    "./libs/**/*"
+  ],
+  "plugins": {
+    "node" : {},
+    "node-express": {},
+    "complete_strings": {},
+    "node": {},
+    "modules": {},
+    "doc_comment": {
+        "fullDocs": true
+    }
+  }
+}
