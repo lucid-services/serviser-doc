@@ -19,7 +19,7 @@
   "author": "Bohemia Interactive",
   "private": false,
   "peerDependencies": {
-    "bi-service": ">=0.7.0 <1"
+    "express": "^4.14.0"
   },
   "dependencies": {
     "ejs": "^2.5.6",
@@ -27,7 +27,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "bi-service": ">=0.7.0 <1",
     "chai": "^3.5.0",
     "istanbul": "^0.4.3",
     "mocha": "^2.5.3"
