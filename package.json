@@ -19,9 +19,11 @@
   "author": "Bohemia Interactive",
   "private": false,
   "peerDependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "bi-json-inspector": ">=1.0.0-rc.3 <1.0.0"
   },
   "dependencies": {
+    "bi-json-inspector-swagger": ">=1.0.0-rc.3b <1.0.0",
     "ejs": "^2.5.6",
     "lodash": "^4.16.2"
   },
