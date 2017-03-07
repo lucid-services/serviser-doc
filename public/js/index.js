@@ -26,6 +26,7 @@ $(function () {
             url: '',
             spec: specs[versions[0]],
             jsonEditor: false,
+            showOperationIds: true,
             validatorUrl: null,
             dom_id: "swagger-ui-container",
             supportedSubmitMethods: supportedSubmitMethods,
