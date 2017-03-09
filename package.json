@@ -25,8 +25,7 @@
   "dependencies": {
     "bi-json-inspector-swagger": ">=1.0.0-rc.3c <1.0.0",
     "ejs": "^2.5.6",
-    "lodash": "^4.16.2",
-    "semver": "^5.3.0"
+    "lodash": "^4.16.2"
   },
   "license": "MIT",
   "devDependencies": {
