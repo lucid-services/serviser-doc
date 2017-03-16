@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.6.0
+
+[ADDED] - makes from this module a plugin which registers itself ones required to the application (since `bi-service@0.9.0`)
+
 ## 0.5.4
 
 [FIXED] - filter out regex pattern in express url segments Eg: /url/:id(\d+) => /url/:id
