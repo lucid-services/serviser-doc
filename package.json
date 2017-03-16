@@ -1,5 +1,5 @@
 {
-  "name": "bi-docs",
+  "name": "bi-service-doc",
   "version": "0.6.0",
   "description": "automated API documentation module",
   "main": "index.js",
