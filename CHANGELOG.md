@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## FUTURE
+## v0.6.0
 
 [ADDED] - makes from this module a plugin which registers itself ones required to the application (since `bi-service@0.9.0`)
 
