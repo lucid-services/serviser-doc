@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## FUTURE
 
 [FIXED] - swagger specification inconsistencies
+[FIXED] - `additionalProperties` of object were not being rendered for response bodies
 
 ## v0.6.2
 
