@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## FUTURE
+## v0.6.3
 
 [FIXED] - swagger specification inconsistencies
 [FIXED] - `additionalProperties` of object were not being rendered for response bodies
