@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## FUTURE
 
+[CHANGED] - route response descriptors come in form of an array for each response code since bi-service@0.10.x, the array is merged into one response schema. This allows a route to describe multiple "variations" of same error response (eg. all api codes the route responds with).
 [FIXED] - don't overwrite default `json-inspector` options as they should be same as for request parameters validators
 
 ## v0.6.4

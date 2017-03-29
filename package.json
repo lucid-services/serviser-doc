@@ -19,7 +19,7 @@
   "author": "Bohemia Interactive",
   "private": false,
   "peerDependencies": {
-    "bi-service": ">=0.9.0 <1",
+    "bi-service": ">=0.10.0 <1",
     "express": "^4.14.0"
   },
   "dependencies": {
