@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.7.1
+
+[FIXED] - failure when building inplace validator schema in form of a function
+
 ## v0.7.0
 
 [ADDED] - request "header" parameters support
