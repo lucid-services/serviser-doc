@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## FUTURE
+
+[CHANGED] - the API this module exports to an user. A `Doc` app is no longer straight instance of `App` but rather `Doc` (expected to be compatible with `bi-service` >0.10.x)
+
 ## v0.7.1
 
 [FIXED] - failure when building inplace validator schema in form of a function
