@@ -23,15 +23,16 @@
     "express": "^4.14.0"
   },
   "dependencies": {
-    "bi-json-inspector-swagger": ">=1.0.0-rc.3c <1.0.0",
-    "bi-json-inspector": ">=1.0.0-rc.3 <1.0.0",
     "bi-config": "^0.7.x",
+    "bi-json-inspector": ">=1.0.0-rc.3 <1.0.0",
+    "bi-json-inspector-swagger": ">=1.0.0-rc.3c <1.0.0",
     "ejs": "^2.5.6",
-    "lodash": "^4.16.2"
+    "lodash": "^4.16.2",
+    "yargs": "^5.0.0"
   },
   "license": "MIT",
   "devDependencies": {
-    "bi-service": ">=0.9.0 <1",
+    "bi-service": ">=0.10.0 <1",
     "express": "^4.14.0",
     "chai": "^3.5.0",
     "istanbul": "^0.4.3",
