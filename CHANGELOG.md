@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## FUTURE
+## v0.8.0
 
 [ADDED] - dynamic url path segments sorting - ensures the swagger json output is deterministic in that regard
 [ADDED] - `bi-service-doc` shell script
