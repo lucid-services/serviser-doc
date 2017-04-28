@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.8.0
+
+[ADDED] - dynamic url path segments sorting - ensures the swagger json output is deterministic in that regard
+[ADDED] - `bi-service-doc` shell script
+[ADDED] - custom `sdkMethodName` to swagger schema
+[CHANGED] - the API this module exports to an user has been changed. A `Doc` app is no longer dirrect instance of `App` but rather `Doc` (expected to be compatible with `bi-service` >0.10.x)
+
 ## v0.7.1
 
 [FIXED] - failure when building inplace validator schema in form of a function
