@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## FUTURE
+## v0.8.1
 
 [FIXED] - It should be ensured that all parameters which are part of an url, are described (should be included in `parameters` array)
 
