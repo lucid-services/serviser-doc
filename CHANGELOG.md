@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## FUTURE
+## v0.8.3
 
 [FIXED] - cli - a failure with projects which contain symlinked dependencies
 [FIXED] - cli - misleading & incorrect error was being presented to an user when any module (file) other than the main app entry file was not found
