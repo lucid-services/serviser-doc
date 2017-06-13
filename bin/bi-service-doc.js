@@ -1,4 +1,5 @@
-#!/usr/bin/env node
+#!/bin/sh
+":" //# http://sambal.org/?p=1014 ; exec /usr/bin/env node --preserve-symlinks "$0" "$@"
 
 //disable parse-pos-args shell option of bi-config module
 process.argv.push('--parse-pos-args');
@@ -37,7 +38,7 @@ process.exit(1);
 
 function cmdGetSwagger(argv) {
     try {
-        var file = require(argv.file);
+        require.resolve(argv.file);
     } catch (e) {
         if (e.code !== 'MODULE_NOT_FOUND') {
             throw e;
@@ -45,6 +46,7 @@ function cmdGetSwagger(argv) {
         console.error(`File ${argv.file} not found.`);
         process.exit(66);
     }
+    var file = require(argv.file);
 
     var appManager = file.appManager;
 
