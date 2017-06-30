@@ -20,11 +20,11 @@
   "author": "Bohemia Interactive",
   "private": false,
   "peerDependencies": {
-    "bi-service": ">=0.10.0 <1",
+    "bi-config": "^1.0.0",
+    "bi-service": ">=0.15.0 <1",
     "express": "^4.14.0"
   },
   "dependencies": {
-    "bi-config": "^0.7.x",
     "bi-json-inspector": ">=1.0.0-rc.3 <1.0.0",
     "bi-json-inspector-swagger": ">=1.0.0-rc.3c <1.0.0",
     "ejs": "^2.5.6",
@@ -33,7 +33,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "bi-service": ">=0.10.0 <1",
+    "bi-config": "^1.0.0",
+    "bi-service": ">=0.15.0 <1",
     "express": "^4.14.0",
     "chai": "^3.5.0",
     "istanbul": "^0.4.3",

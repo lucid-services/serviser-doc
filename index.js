@@ -2,7 +2,6 @@
 
 var config             = require('bi-config');
 var service            = require('bi-service');
-var serviceInitializer = require('bi-service/bin/www');
 var Doc                = require('./lib/doc.js').Doc;
 
 module.exports.Doc     = Doc;
@@ -34,7 +33,7 @@ AppManager.prototype.buildDoc = function(cfg, options) {
 };
 
 //register DOC server initialization listener
-serviceInitializer.on('app', function(app) {
+service.Service.on('app', function(app) {
     //run doc server
     if (app.config.get('doc:listen')) {
         app.appManager.buildDoc(
