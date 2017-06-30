@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v0.9.0
+
+[CHANGED] - minimum required dependency of `bi-service@0.15.0`
+
 ## v0.8.3
 
 [FIXED] - cli - a failure with projects which contain symlinked dependencies
