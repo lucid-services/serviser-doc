@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## FUTURE
+
+[FIXED] - `host` property of generated swagger json should NOT include a protocol
+[FIXED] - req parameter duplicates should be filtered out out of swagger json specs
+
 ## v0.9.0
 
 [CHANGED] - minimum required dependency of `bi-service@0.15.0`
