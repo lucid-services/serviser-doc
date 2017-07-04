@@ -49,7 +49,10 @@ function cmdGetSwagger(argv) {
         var service = file;
         service.$setProjectRoot(path.dirname(argv.file));
         return service.$setup().then(function() {
-            return getDoc(service.appManager);
+            //required - wait until all apps are initialized
+            return process.nextTick(function() {
+                return getDoc(service.appManager);
+            });
         });
     } else if (file && Object.getPrototypeOf(file).constructor.name === 'AppManager') {
         return getDoc(file);
@@ -77,8 +80,7 @@ function cmdGetSwagger(argv) {
 }
 
 function appFilter(apps, whitelist) {
-    //include only dirrect instances of App (excludes Doc & CLI apps etc)
     return apps.filter(function(app) {
-        return app &&  Object.getPrototypeOf(app).constructor.name === 'App' && whitelist.indexOf(app.options.name) !== -1;
+        return app && whitelist.indexOf(app.options.name) !== -1;
     });
 }
