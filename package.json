@@ -1,6 +1,6 @@
 {
   "name": "bi-service-doc",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "bin": "./bin/bi-service-doc.js",
   "description": "automated API documentation module",
   "main": "index.js",

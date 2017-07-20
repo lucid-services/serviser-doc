@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## FUTURE
+## v0.9.4
 
 [FIXED] - correct npm project (module) name was not being coerced (thus the shell exucutable failed to generated JSON specs)
 [FIXED] - `AppManager.buildDoc` should emit `build-app` event
