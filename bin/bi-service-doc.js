@@ -48,6 +48,7 @@ function cmdGetSwagger(argv) {
     if (file && Object.getPrototypeOf(file).constructor.name === 'Service') {
         var service = file;
         service.$setProjectRoot(path.dirname(argv.file));
+        service.$setProjectName();
         return service.$setup().then(function() {
             //required - wait until all apps are initialized
             return process.nextTick(function() {

@@ -27,6 +27,7 @@ AppManager.prototype.buildDoc = function(cfg, options) {
 
     var doc = new Doc(this, cfg, options);
     doc.on('error', this.$buildAppErrorListener(doc));
+    this.emit('build-app', doc);
     this.add(doc);
 
     return doc;
