@@ -37,9 +37,9 @@ AppManager.prototype.buildDoc = function(cfg, options) {
 service.Service.on('app', function(app) {
     //run doc server
     if (app.config.get('doc:listen')) {
-        app.appManager.buildDoc(
-            config.createLiteralProvider(app.config.get('doc')),
-            {app: app}
-        );
+        var cfg = config.createLiteralProvider(app.config.get('doc'));
+        cfg.use('memory');
+
+        app.appManager.buildDoc(cfg, {app: app});
     }
 });
