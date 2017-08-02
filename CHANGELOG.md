@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## FUTURE
+## v0.9.5
 
 [FIXED] - use bi-config's public interface rather than hacking around its internal (which was necessary in earlier versions)
 [FIXED] - generated swagger json spec should not contain duplicate parameter names in Array collections
