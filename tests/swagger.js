@@ -152,7 +152,7 @@ describe('generate', function() {
             specs.should.have.deep.property('schemes').that.is.eql(['https', 'http']);
         });
 
-        it('should include postUserRegister route in generated swagger specification', function() {
+        it('should include postArticle route in generated swagger specification', function() {
             var specs = this.specs['v2.1'];
 
             specs.should.have.deep.property('paths./.post').that.is.eql({
@@ -201,5 +201,29 @@ describe('generate', function() {
             });
         });
 
+        it('should include deleteArticle route in generated swagger specification', function() {
+            var specs = this.specs['v2.1'];
+
+            specs.should.have.deep.property('paths./{id}.delete').that.is.eql({
+                operationId: 'deleteArticle_v2.1',
+                tags: [ 'article' ],
+                summary: '',
+                description: '',
+                sdkMethodName: 'deleteArticle',
+                produces: [ 'application/json' ],
+                consumes: [ 'application/json' ],
+                parameters: [
+                    {
+                        in: "path",
+                        name: "id",
+                        required: true,
+                        type: "string"
+                    }
+                ],
+                responses: {
+                    '500': this.getInternalServerErrorResponseSpecs()
+                }
+            });
+        });
     });
 });
