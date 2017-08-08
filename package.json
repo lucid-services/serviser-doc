@@ -5,8 +5,8 @@
   "description": "automated API documentation module",
   "main": "index.js",
   "scripts": {
-    "unit-tests": "export NODE_ENV=test; istanbul cover node_modules/mocha/bin/_mocha -- --recursive --ui tdd -R spec tests",
-    "test": "npm run unit-tests"
+    "tests": "mocha --ui bdd --colors --check-leaks -t 5000 --reporter spec --parse-pos-args false  'tests/**/*.js'",
+    "test": "npm run tests"
   },
   "testFramework": "mocha",
   "keywords": [
@@ -20,7 +20,7 @@
   "author": "Bohemia Interactive",
   "private": false,
   "peerDependencies": {
-    "bi-config": "^1.0.0",
+    "bi-config": "^1.2.0",
     "bi-service": ">=0.15.0 <1",
     "express": "^4.14.0"
   },
@@ -33,11 +33,16 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "bi-config": "^1.0.0",
-    "bi-service": ">=0.15.0 <1",
+    "bi-config": "^1.2.0",
+    "bi-service": ">=0.16.0 <1",
     "express": "^4.14.0",
     "chai": "^3.5.0",
     "istanbul": "^0.4.3",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "sinon-chai": "^2.8.0",
+    "sinon": "^1.17.3",
+    "sinon-as-promised": "^4.0.0",
     "mocha": "^2.5.3"
   }
 }
