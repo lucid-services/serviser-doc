@@ -47,7 +47,11 @@ function cmdGetSwagger(argv) {
 
     if (file && Object.getPrototypeOf(file).constructor.name === 'Service') {
         var service = file;
+        //project root correction as otherwise it would point to the cwd
+        //bin/bi-service-doc was executed from
         service.$setProjectRoot(path.dirname(argv.file));
+        //project name = package.json -> name ... thus needs to be updated
+        //after project root correction
         service.$setProjectName();
         return service.$setup().then(function() {
             //required - wait until all apps are initialized
@@ -65,6 +69,8 @@ function cmdGetSwagger(argv) {
 
     function getDoc(appManager) {
         if (!argv.app.length) {
+            //no specific apps were listed by an user so generate specs
+            //for all available apps
             argv.app = _.map(appManager.apps, 'options.name');
         }
 

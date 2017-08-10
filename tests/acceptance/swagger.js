@@ -4,7 +4,7 @@ var sinonChai = require("sinon-chai");
 var Config    = require('bi-config');
 var Service   = require('bi-service');
 
-var swagger = require('../lib/swagger.js');
+var swagger = require('../../lib/swagger.js');
 
 var expect = chai.expect;
 

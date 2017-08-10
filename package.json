@@ -5,7 +5,7 @@
   "description": "automated API documentation module",
   "main": "index.js",
   "scripts": {
-    "tests": "mocha --ui bdd --colors --check-leaks -t 5000 --reporter spec --parse-pos-args false  'tests/**/*.js'",
+    "tests": "mocha --ui bdd --colors --check-leaks -t 5000 --reporter spec --parse-pos-args false  'tests/acceptance/**/*.js'",
     "test": "npm run tests"
   },
   "testFramework": "mocha",
