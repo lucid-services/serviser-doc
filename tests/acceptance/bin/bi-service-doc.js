@@ -35,8 +35,8 @@ describe('bin/bi-service-doc', function() {
             cwd: path.resolve(__dirname + '/../../app')
         });
 
-        result.status.should.be.equal(0);
         result.stderr.toString().should.be.equal("");
+        result.status.should.be.equal(0);
         var specs = JSON.parse(result.stdout.toString());
         specs.should.be.a('object');
         specs.should.have.property('app1');

@@ -1,7 +1,7 @@
 {
     apps: {
         app1: {
-            baseUrl: '127.0.0.1',
+            baseUrl: 'http://127.0.0.1',
             listen: null,
             bodyParser: {
                 json: {
@@ -12,7 +12,7 @@
             },
         },
         app2: {
-            baseUrl: '127.0.0.1',
+            baseUrl: 'http://127.0.0.1',
             listen: null,
             bodyParser: {
                 json: {

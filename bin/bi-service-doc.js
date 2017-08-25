@@ -2,6 +2,7 @@
 ":" //# http://sambal.org/?p=1014 ; exec /usr/bin/env node --preserve-symlinks "$0" "$@"
 
 //disable parse-pos-args shell option of bi-config module
+//does not apply for bi-service>=1.0.0-alpha
 process.argv.push('--parse-pos-args');
 process.argv.push('false');
 
@@ -47,6 +48,7 @@ function cmdGetSwagger(argv) {
 
     if (file && Object.getPrototypeOf(file).constructor.name === 'Service') {
         var service = file;
+        service.config.initialize({fileConfigPath: argv.config});
         //project root correction as otherwise it would point to the cwd
         //bin/bi-service-doc was executed from
         service.$setProjectRoot(path.dirname(argv.file));

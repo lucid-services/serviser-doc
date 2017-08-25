@@ -18,18 +18,23 @@ service.on('set-up', function() {
         url: '/',
         type: 'get'
     }).validate({
-        id: {$is: Number}
+        type: 'object',
+        properties: {
+            id: {type: 'integer'}
+        }
     }, 'query');
 
+    //app2
+    service.buildApp('app2').buildRouter({
+        url: '/',
+        version: 2
+    }).buildRoute({
+        url: '/:id',
+        type: 'put'
+    }).validate({
+        type: 'object',
+        properties: {
+            id: {type: 'integer'}
+        }
+    }, 'params');
 });
-
-//app2
-service.buildApp('app2').buildRouter({
-    url: '/',
-    version: 2
-}).buildRoute({
-    url: '/:id',
-    type: 'put'
-}).validate({
-    id: {$is: Number}
-}, 'params');

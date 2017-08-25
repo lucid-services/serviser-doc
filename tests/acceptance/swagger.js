@@ -122,13 +122,19 @@ describe('generate', function() {
             });
 
             this.createArticleRoute.respondsWith({
-                title: {$is: String},
-                content: {$is: String},
+                type: 'object',
+                properties: {
+                    title: {type: 'string'},
+                    content: {type: 'string'},
+                }
             });
 
             this.createArticleRoute.validate({
-                title: {$is: String},
-                content: {$is: String}
+                type: 'object',
+                properties: {
+                    title: {type: 'string'},
+                    content: {type: 'string'},
+                }
             }, 'body');
 
             //
