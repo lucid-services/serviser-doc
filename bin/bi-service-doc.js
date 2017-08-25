@@ -3,6 +3,7 @@
 
 //disable parse-pos-args shell option of bi-config module
 //does not apply for bi-service>=1.0.0-alpha
+//@deprecated
 process.argv.push('--parse-pos-args');
 process.argv.push('false');
 
@@ -28,6 +29,11 @@ var argv = yargs
         type: 'string',
         default: [],
         array: true,
+    },
+    config: {
+        describe: 'Config file destination',
+        global: true,
+        type: 'string'
     }
 }, cmdGetSwagger)
 .example('$0 get:swagger -f index.js --config /path/to/apps/config.json5',
