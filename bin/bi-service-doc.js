@@ -38,7 +38,7 @@ var argv = yargs
 }, cmdGetSwagger)
 .example('$0 get:swagger -f index.js --config /path/to/apps/config.json5',
     'Generates specs for each app found in `appManager` of the service')
-.help('h', false).argv;
+.help('h', false).alias('h', 'help').argv;
 
 function cmdGetSwagger(argv) {
     try {
