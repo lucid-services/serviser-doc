@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## FUTURE
 
-[CHANGED] - requires `bi-service` >= `1.0.0-alpha`
+[CHANGED] - requires `bi-service` >= `1.0.0-alpha` which dropped support for json-inspector and replaced it with ajv validator
 
 ## v0.9.5
 
