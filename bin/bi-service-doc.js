@@ -2,6 +2,8 @@
 ":" //# http://sambal.org/?p=1014 ; exec /usr/bin/env node --preserve-symlinks "$0" "$@"
 
 //disable parse-pos-args shell option of bi-config module
+//does not apply for bi-service>=1.0.0-alpha
+//@deprecated
 process.argv.push('--parse-pos-args');
 process.argv.push('false');
 
@@ -27,11 +29,16 @@ var argv = yargs
         type: 'string',
         default: [],
         array: true,
+    },
+    config: {
+        describe: 'Config file destination',
+        global: true,
+        type: 'string'
     }
 }, cmdGetSwagger)
 .example('$0 get:swagger -f index.js --config /path/to/apps/config.json5',
     'Generates specs for each app found in `appManager` of the service')
-.help('h', false).argv;
+.help('h', false).alias('h', 'help').argv;
 
 function cmdGetSwagger(argv) {
     try {
@@ -47,7 +54,12 @@ function cmdGetSwagger(argv) {
 
     if (file && Object.getPrototypeOf(file).constructor.name === 'Service') {
         var service = file;
+        service.config.initialize({fileConfigPath: argv.config});
+        //project root correction as otherwise it would point to the cwd
+        //bin/bi-service-doc was executed from
         service.$setProjectRoot(path.dirname(argv.file));
+        //project name = package.json -> name ... thus needs to be updated
+        //after project root correction
         service.$setProjectName();
         return service.$setup().then(function() {
             //required - wait until all apps are initialized
@@ -65,6 +77,8 @@ function cmdGetSwagger(argv) {
 
     function getDoc(appManager) {
         if (!argv.app.length) {
+            //no specific apps were listed by an user so generate specs
+            //for all available apps
             argv.app = _.map(appManager.apps, 'options.name');
         }
 
