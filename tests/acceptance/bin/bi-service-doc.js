@@ -85,11 +85,11 @@ describe('bin/bi-service-doc', function() {
             '--config',
             path.resolve(__dirname + '/../../app/config.json5'),
             '-f',
-            path.resolve(__dirname + '/some/path/which/does/not/exit.js')
+            path.resolve(__dirname + '/some/path/which/does/not/exist.js')
         ]);
 
         result.status.should.be.equal(66);
-        result.stderr.toString().should.match(/File\ .+ not found/);
+        result.stderr.toString().should.match(/Cannot find module .+\/some\/path\/which\/does\/not\/exist.js/);
     });
 
     it('should fail with exit code: 65 when provided bi-service app enterence file does not implement required interface', function() {

@@ -8,9 +8,9 @@ process.argv.push('--parse-pos-args');
 process.argv.push('false');
 
 const _      = require('lodash');
+const fs     = require('fs');
 const path   = require('path');
 const yargs  = require('yargs');
-const config = require('bi-config');
 
 const swagger = require('../lib/swagger.js');
 
@@ -42,15 +42,20 @@ const argv = yargs
 .help('h', false).alias('h', 'help').argv;
 
 function cmdGetSwagger(argv) {
+    let config, PROJECT_ROOT;
+
     try {
         require.resolve(argv.file);
+        PROJECT_ROOT = getProjectRoot(path.dirname(argv.file));
+        require.resolve(path.resolve(PROJECT_ROOT + '/node_modules/bi-config'));
     } catch (e) {
         if (e.code !== 'MODULE_NOT_FOUND') {
             throw e;
         }
-        console.error(`File ${argv.file} not found.`);
+        console.error(e.message);
         process.exit(66);
     }
+    config = require(path.resolve(PROJECT_ROOT + '/node_modules/bi-config'));
     config.initialize({fileConfigPath: argv.config});
 
     var file = require(argv.file);
@@ -100,4 +105,31 @@ function appFilter(apps, whitelist) {
     return apps.filter(function(app) {
         return app && whitelist.indexOf(app.options.name) !== -1;
     });
+}
+
+/**
+ * @param {String} dir
+ * @return {String|undefined}
+ */
+function getProjectRoot(dir) {
+    var p = dir || process.cwd();
+
+    while ((fs.statSync(p)).isDirectory()) {
+        try {
+            p = require.resolve(p + '/package.json');
+            break;
+        } catch (e) {
+            if (e.code !== 'MODULE_NOT_FOUND') {
+                throw e;
+            }
+
+            var _p = path.resolve(p + '/../');
+
+            if (_p == p)  return;
+
+            p = _p;
+        }
+    }
+
+    return path.dirname(p);
 }
