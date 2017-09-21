@@ -7,13 +7,14 @@
 process.argv.push('--parse-pos-args');
 process.argv.push('false');
 
-var _     = require('lodash');
-var path  = require('path');
-var yargs = require('yargs');
+const _      = require('lodash');
+const path   = require('path');
+const yargs  = require('yargs');
+const config = require('bi-config');
 
-var swagger = require('../lib/swagger.js');
+const swagger = require('../lib/swagger.js');
 
-var argv = yargs
+const argv = yargs
 .usage('$0 <command> [option]...')
 .command('get:swagger', 'Generates swagger json specification of given apps', {
     file: {
@@ -50,13 +51,14 @@ function cmdGetSwagger(argv) {
         console.error(`File ${argv.file} not found.`);
         process.exit(66);
     }
+    config.initialize({fileConfigPath: argv.config});
+
     var file = require(argv.file);
 
     if (file && Object.getPrototypeOf(file).constructor.name === 'Service') {
         var service = file;
-        service.config.initialize({fileConfigPath: argv.config});
         //project root correction as otherwise it would point to the cwd
-        //bin/bi-service-doc was executed from
+        //the bin/bi-service-doc was executed from
         service.$setProjectRoot(path.dirname(argv.file));
         //project name = package.json -> name ... thus needs to be updated
         //after project root correction
