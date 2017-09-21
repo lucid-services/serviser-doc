@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## FUTURE
+
+* [FIXED] - `bi-config` initialization should happen before a service module is loaded
+
 ## v1.0.0-alpha
 
 [CHANGED] - requires `bi-service` >= `1.0.0-alpha` which dropped support for json-inspector and replaced it with ajv validator
