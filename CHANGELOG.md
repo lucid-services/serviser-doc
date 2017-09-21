@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## FUTURE
+
+* [FIXED] - `bi-config` related failure when `bi-service-doc` package is installed globally (project's local `bi-config` package must be used rather the global module)
+
 ## v1.0.0-alpha.2
 
 * [FIXED] - `bi-config` initialization should happen before a service module is loaded
