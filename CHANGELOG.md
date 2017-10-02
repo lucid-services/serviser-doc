@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## FUTURE
+
+[FIXED] - generated request input parameters can NOT accept multiple req BODY payloads (eg. `formData` and `json` at the same time)
+
 ## v0.9.5
 
 [FIXED] - use bi-config's public interface rather than hacking around its internal (which was necessary in earlier versions)
