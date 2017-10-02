@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## FUTURE
+## v0.9.6
 
 [FIXED] - generated request input parameters can NOT accept multiple req BODY payloads (eg. `formData` and `json` at the same time)
 
