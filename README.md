@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/BohemiaInteractive/bi-service-doc.svg?branch=master)](https://travis-ci.org/BohemiaInteractive/bi-service-doc)  
+[![Build Status](https://travis-ci.org/BohemiaInteractive/bi-service-doc.svg?branch=master)](https://travis-ci.org/BohemiaInteractive/bi-service-doc)   
 
 This `bi-service` plugin generates documentation (`swagger-ui` like frontend) for `bi-service` Apps.  
 Here is how it works in few steps:
