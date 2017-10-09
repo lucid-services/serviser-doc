@@ -1,6 +1,6 @@
 {
   "name": "bi-service-doc",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "bin": "./bin/bi-service-doc.js",
   "description": "automated API documentation module",
   "main": "index.js",
@@ -33,7 +33,7 @@
     "express": "^4.14.0"
   },
   "dependencies": {
-    "ajv2swagger": "^0.1.1",
+    "bi-ajv2swagger": "^0.2.0",
     "ejs": "^2.5.6",
     "lodash": "^4.16.2",
     "yargs": "^5.0.0"
