@@ -17,6 +17,15 @@
     "automatization",
     "autogeneration"
   ],
+  "files": [
+      "bin",
+      "lib",
+      "public",
+      "views",
+      "index.js",
+      "README.md",
+      "CHANGELOG.md"
+  ],
   "author": "Bohemia Interactive",
   "private": false,
   "peerDependencies": {
