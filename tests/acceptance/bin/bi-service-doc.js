@@ -9,6 +9,9 @@ function spawn(args, options) {
     options = options || {};
     var cmd = path.normalize(__dirname + '/../../../bin/bi-service-doc.js');
     args.unshift(cmd);
+    console.log('========')
+    console.log(args)
+    console.log(fs.existsSync(cmd));
 
     var result = childProcess.spawnSync('node', args, {
         cwd: options.cwd,
