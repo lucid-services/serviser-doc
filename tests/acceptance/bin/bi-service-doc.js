@@ -15,6 +15,7 @@ function spawn(args, options) {
 
     var result = childProcess.spawnSync('node', args, {
         cwd: options.cwd,
+        shell: true,
         env: { NODE_ENV: 'development' }
     });
 
