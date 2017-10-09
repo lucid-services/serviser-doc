@@ -2,5 +2,8 @@ language: node_js
 node_js:
 - "6.4.0"
 
+before_script:
+    - which node
+
 script:
     - npm test
