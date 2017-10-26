@@ -45,3 +45,36 @@ require('bi-service-doc');
     }
 }
 ```
+
+### From what the docs are generated?
+
+- [Router](https://bohemiainteractive.github.io/bi-service/Router.html) & [Route](https://bohemiainteractive.github.io/bi-service/Route.html) definitions.
+- Validation schema definitions provided to the [route.validate](https://bohemiainteractive.github.io/bi-service/Route.html#validate) & [route.respondsWith](https://bohemiainteractive.github.io/bi-service/Route.html#respondsWith) methods.
+- Custom `Ajv` keyword `$desc` which `bi-service` provides, can be used to describe individual request/response data properties in user defined `Route` validation schemas.
+    ```javascript
+    route.respondsWith({ //200 - OK response
+        type: 'object',
+        properties: {
+            is_active: {
+                type: 'boolean',
+                $desc: 'Whether the user has been online within a period of last 7 days'
+            }
+        }
+    });
+
+    //
+    route.validate({
+        username: {type: 'string'}
+    }, 'params');
+    ```
+- Possible route error responses can be described also by the `route.respondsWith` method:
+    ```javascript
+    route.respondsWith(RequestError);
+    route.respondsWith(new RequestError({
+        apiCode: 'tag.alreadyExists'
+        message: 'Tag already exists'
+    }));
+    route.respondsWith(UnauthorizedError);
+    ```
+
+Also see `bi-service` [Error management](https://bohemiainteractive.github.io/bi-service/tutorial-1b.ErrorManagement.html)
