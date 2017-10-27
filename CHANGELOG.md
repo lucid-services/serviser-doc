@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## FUTURE
+
+* [ADDED] - GET api/v1.0/specs/:version endpoint
+
 ## v1.0.0-alpha.4
 
 * [FIXED] - `ajv2swagger` package has been renamed to `bi-ajv2swagger`

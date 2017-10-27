@@ -36,7 +36,7 @@
     "bi-ajv2swagger": "^0.2.0",
     "ejs": "^2.5.6",
     "lodash": "^4.16.2",
-    "yargs": "^5.0.0"
+    "yargs": "^8.0.0"
   },
   "license": "MIT",
   "devDependencies": {
