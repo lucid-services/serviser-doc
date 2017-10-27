@@ -1,6 +1,6 @@
 {
   "name": "bi-service-doc",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-beta",
   "bin": "./bin/bi-service-doc.js",
   "description": "automated API documentation module",
   "main": "index.js",
@@ -36,7 +36,7 @@
     "bi-ajv2swagger": "^0.2.0",
     "ejs": "^2.5.6",
     "lodash": "^4.16.2",
-    "yargs": "^5.0.0"
+    "yargs": "^8.0.0"
   },
   "license": "MIT",
   "devDependencies": {
