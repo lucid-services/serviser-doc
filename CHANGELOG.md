@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v1.0.0-beta.2
+
+* [FIXED] - swagger root options `host` & `basePath` were being incorrectly assembled when an app's `baseUrl` included path endpoint in addition to protocol + host
+
 ## v1.0.0-beta
 
 * [ADDED] - GET api/v1.0/specs/:version endpoint
