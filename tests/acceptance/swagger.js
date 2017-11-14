@@ -70,6 +70,7 @@ describe('generate', function() {
                 summary: 'Creates new user',
                 description: 'User registration',
                 sdkMethodName: 'postUserRegister',
+                'x-sdkMethodName': 'postUserRegister',
                 produces: [ 'application/json' ],
                 consumes: [ 'application/json' ],
                 parameters: [],
@@ -88,6 +89,7 @@ describe('generate', function() {
                 summary: '',
                 description: '',
                 sdkMethodName: 'updateUser',
+                'x-sdkMethodName': 'updateUser',
                 produces: [ 'application/json' ],
                 consumes: [ 'application/json' ],
                 parameters: [
@@ -117,6 +119,7 @@ describe('generate', function() {
             this.createArticleRoute = this.router.buildRoute({
                 url: '/',
                 sdkMethodName: 'createArticle',
+                'x-sdkMethodName': 'createArticle',
                 summary: 'Create an article',
                 type: 'post'
             });
@@ -167,6 +170,7 @@ describe('generate', function() {
                 summary: 'Create an article',
                 description: '',
                 sdkMethodName: 'createArticle',
+                'x-sdkMethodName': 'createArticle',
                 produces: [ 'application/json' ],
                 consumes: [ 'application/json' ],
                 parameters: [
@@ -216,6 +220,7 @@ describe('generate', function() {
                 summary: '',
                 description: '',
                 sdkMethodName: 'deleteArticle',
+                'x-sdkMethodName': 'deleteArticle',
                 produces: [ 'application/json' ],
                 consumes: [ 'application/json' ],
                 parameters: [
