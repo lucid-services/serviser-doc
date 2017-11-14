@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * [FIXED] - missing front-end image files
 * [FIXED] - updated front-end scripts & css styles
 * [FIXED] - compatibility with upcomming bi-service@1.0.0 - regarding common `App` interface
+* [DEPRECATED] - `sdkMethodName` property - `x-sdkMethodName` should be used instead
 
 ## v1.0.0-beta.2
 
