@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## FUTURE
+
+* [FIXED] - missing front-end image files
+* [FIXED] - updated front-end scripts & css styles
+* [FIXED] - compatibility with upcomming bi-service@1.0.0 - regarding common `App` interface
+
 ## v1.0.0-beta.2
 
 * [FIXED] - swagger root options `host` & `basePath` were being incorrectly assembled when an app's `baseUrl` included path endpoint in addition to protocol + host
