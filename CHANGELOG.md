@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## FUTURE
+
+* [ADDED] generated json specification includes custom `x-amqp` options object in case of AMQP route definition
+
 ## v1.0.0-beta.3
 
 * [FIXED] - missing front-end image files
