@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## FUTURE
 
-* [ADDED] generated json specification includes custom `x-amqp` options object in case of AMQP route definition
+* [ADDED] support for AMQP route specs generation
 
 ## v1.0.0-beta.3
 
