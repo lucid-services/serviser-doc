@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## FUTURE
+
+* [FIXED] throw proper error with useful error message when no validator with a specified identifier is not found
+
 ## v1.0.0-beta.5
 
 * [FIXED] generated JSON specification should include valid list of supported schemes (protocols)
