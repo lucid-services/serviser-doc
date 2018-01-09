@@ -67,7 +67,7 @@ function cmdGetSwagger(argv) {
         service.$setProjectRoot(path.dirname(argv.file));
         //project name = package.json -> name ... thus needs to be updated
         //after project root correction
-        service.$setProjectName();
+        service.$setProjectMeta();
         return service.$setup().then(function() {
             //required - wait until all apps are initialized
             return process.nextTick(function() {
