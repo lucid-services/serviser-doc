@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v1.1.0
+
+* [ADDED] front-end: searchbox for filtering API operations
+* [ADDED] front-end: basic support for `patternProperties` schema keyword
+* [FIXED] front-end: BASE URL should contain host
+* [FIXED] front-end: url link now dynamically changes when we switch to different API version so the URL dirrectly link to the API version we are currently at
+
 ## v1.0.0
 
 * [FIXED] updated bi-service private API calls to conform with the new `bi-service@1.0.0` release
