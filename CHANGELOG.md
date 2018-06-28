@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## v1.1.3
 
+* [FIXED] previous broken release
+
 ## v1.1.2
+
+* [FIXED] previous broken release
 
 ## v1.1.1
 
