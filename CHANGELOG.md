@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## FUTURE
 
 * [CHANGED] replaced `swagger-ui` fronted with `ReDoc` modern frontend created with React
+* [CHANGED] upgraded to specification `OpenAPI v3.0.0`
 
 ## v1.1.3
 
