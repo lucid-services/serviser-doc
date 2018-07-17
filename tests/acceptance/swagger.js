@@ -67,7 +67,7 @@ describe.only('generate', function() {
 
             specs.should.have.deep.property('paths./register.post').that.is.eql({
                 operationId: 'postUserRegister_v1.0',
-                tags: [ 'register' ],
+                tags: [ 'user' ],
                 summary: 'Creates new user',
                 description: 'User registration',
                 'x-sdkMethodName': 'postUserRegister',
