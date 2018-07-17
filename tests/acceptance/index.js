@@ -4,18 +4,22 @@ before(function() {
     this.getInternalServerErrorResponseSpecs = function() {
         var specs = {
             description:"Please, contact official support. Don't repeat the request in the nearest future.",
-            schema:{
-                type:"object",
-                required:["code","uid","message"],
-                properties:{
-                    code:{type:"integer",format:"int64",example:500},
-                    uid:{
-                        type:"float"
-                    },
-                    message:{
-                        type:"string",
-                        format:"varchar(255)",
-                        example:"Internal Server Error"
+            content: {
+                'application/json': {
+                    schema:{
+                        type:"object",
+                        required:["code","uid","message"],
+                        properties:{
+                            code:{type:"integer",format:"int64",example:500},
+                            uid:{
+                                type:"float"
+                            },
+                            message:{
+                                type:"string",
+                                format:"varchar(255)",
+                                example:"Internal Server Error"
+                            }
+                        }
                     }
                 }
             }
@@ -29,6 +33,14 @@ before(function() {
     };
 
     this.getValidationErrorResponseSpecs = function() {
-        return (new service.error.ValidationError).toSwagger();
+        let specs = (new service.error.ValidationError).toSwagger();
+        return {
+            description: specs.description,
+            content: {
+                'application/json': {
+                    schema: specs.schema
+                }
+            }
+        };
     };
 });

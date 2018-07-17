@@ -11,7 +11,7 @@ var expect = chai.expect;
 chai.use(sinonChai);
 chai.should();
 
-describe('generate', function() {
+describe.only('generate', function() {
     before(function() {
         var service = new Service.Service(Config);
         var conf = new Config.Config();
@@ -54,11 +54,12 @@ describe('generate', function() {
 
             specs.should.have.property('v1.0').that.is.a('object');
             specs = specs['v1.0'];
-            specs.should.have.property('swagger', '2.0');
+            specs.should.have.property('openapi', '3.0.0');
             specs.should.have.deep.property('info.title', 'appName');
             specs.should.have.deep.property('info.version', 'v1.0');
-            specs.should.have.deep.property('basePath', '/user');
-            specs.should.have.deep.property('schemes').that.is.eql(['https', 'http']);
+            specs.should.have.deep.property('servers').that.is.eql([{
+                url: '/user'
+            }]);
         });
 
         it('should include postUserRegister route in generated swagger specification', function() {
@@ -69,11 +70,11 @@ describe('generate', function() {
                 tags: [ 'register' ],
                 summary: 'Creates new user',
                 description: 'User registration',
-                sdkMethodName: 'postUserRegister',
                 'x-sdkMethodName': 'postUserRegister',
                 produces: [ 'application/json' ],
                 consumes: [ 'application/json' ],
                 parameters: [],
+                requestBody: {},
                 responses: {
                     '500': this.getInternalServerErrorResponseSpecs()
                 }
@@ -87,8 +88,8 @@ describe('generate', function() {
                 operationId: 'putUser_v1.0',
                 tags: ['user'],
                 summary: '',
+                requestBody: {},
                 description: '',
-                sdkMethodName: 'updateUser',
                 'x-sdkMethodName': 'updateUser',
                 produces: [ 'application/json' ],
                 consumes: [ 'application/json' ],
@@ -119,7 +120,6 @@ describe('generate', function() {
             this.createArticleRoute = this.router.buildRoute({
                 url: '/',
                 sdkMethodName: 'createArticle',
-                'x-sdkMethodName': 'createArticle',
                 summary: 'Create an article',
                 type: 'post'
             });
@@ -132,6 +132,7 @@ describe('generate', function() {
                 }
             });
 
+            this.createArticleRoute.acceptsContentType('application/x-www-form-urlencoded');
             this.createArticleRoute.validate({
                 type: 'object',
                 properties: {
@@ -154,11 +155,12 @@ describe('generate', function() {
 
             specs.should.have.property('v2.1').that.is.a('object');
             specs = specs['v2.1'];
-            specs.should.have.property('swagger', '2.0');
+            specs.should.have.property('openapi', '3.0.0');
             specs.should.have.deep.property('info.title', 'appName');
             specs.should.have.deep.property('info.version', 'v2.1');
-            specs.should.have.deep.property('basePath', '/article');
-            specs.should.have.deep.property('schemes').that.is.eql(['https', 'http']);
+            specs.should.have.deep.property('servers').that.is.eql([{
+                url: '/article'
+            }]);
         });
 
         it('should include postArticle route in generated swagger specification', function() {
@@ -169,41 +171,43 @@ describe('generate', function() {
                 tags: [ 'article' ],
                 summary: 'Create an article',
                 description: '',
-                sdkMethodName: 'createArticle',
                 'x-sdkMethodName': 'createArticle',
                 produces: [ 'application/json' ],
                 consumes: [ 'application/json' ],
-                parameters: [
-                    {
-                      in: "formData",
-                      name: "title",
-                      required: false,
-                      type: "string"
-                    },
-                    {
-                      in: "formData",
-                      name: "content",
-                      required: false,
-                      type: "string"
+                parameters: [],
+                requestBody: {
+                    required: false,
+                    description: '',
+                    content: {
+                        'application/x-www-form-urlencoded': {
+                            schema: {
+                                type: 'object',
+                                properties: {
+                                    title: {type: 'string'},
+                                    content: {type: 'string'}
+                                }
+                            }
+                        }
                     }
-                ],
+                },
                 responses: {
                     '200': {
-                      description: " ",
-                      in: "body",
-                      name: "JSON payload",
-                      required: false,
-                      schema: {
-                        properties: {
-                          content: {
-                            type: "string"
-                          },
-                          title: {
-                            type: "string"
-                          }
-                        },
-                        type: "object"
-                      }
+                        description: " ",
+                        content: {
+                            'application/json': {
+                                schema: {
+                                    properties: {
+                                      content: {
+                                        type: "string"
+                                      },
+                                      title: {
+                                        type: "string"
+                                      }
+                                    },
+                                    type: "object"
+                                }
+                            }
+                        }
                     },
                     '400': this.getValidationErrorResponseSpecs(),
                     '500': this.getInternalServerErrorResponseSpecs()
@@ -219,10 +223,10 @@ describe('generate', function() {
                 tags: [ 'article' ],
                 summary: '',
                 description: '',
-                sdkMethodName: 'deleteArticle',
                 'x-sdkMethodName': 'deleteArticle',
                 produces: [ 'application/json' ],
                 consumes: [ 'application/json' ],
+                requestBody: {},
                 parameters: [
                     {
                         in: "path",
