@@ -11,7 +11,7 @@ var expect = chai.expect;
 chai.use(sinonChai);
 chai.should();
 
-describe.only('generate', function() {
+describe('generate', function() {
     before(function() {
         var service = new Service.Service(Config);
         var conf = new Config.Config();
