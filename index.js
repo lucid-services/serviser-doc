@@ -38,6 +38,9 @@ service.Service.on('app', function(app) {
         var cfg = config.createLiteralProvider(app.config.get('doc'));
         cfg.use('memory');
 
-        app.appManager.buildDoc(cfg, {app: app});
+        app.appManager.buildDoc(cfg, {
+            app: app,
+            name: `${app.name}-doc`
+        });
     }
 });

@@ -55,7 +55,7 @@ describe.only('generate', function() {
             specs.should.have.property('v1.0').that.is.a('object');
             specs = specs['v1.0'];
             specs.should.have.property('openapi', '3.0.0');
-            specs.should.have.deep.property('info.title', 'appName');
+            specs.should.have.deep.property('info.title', 'bi-service API documentation');
             specs.should.have.deep.property('info.version', 'v1.0');
             specs.should.have.deep.property('servers').that.is.eql([{
                 url: '/user'
@@ -71,8 +71,6 @@ describe.only('generate', function() {
                 summary: 'Creates new user',
                 description: 'User registration',
                 'x-sdkMethodName': 'postUserRegister',
-                produces: [ 'application/json' ],
-                consumes: [ 'application/json' ],
                 parameters: [],
                 requestBody: {},
                 responses: {
@@ -91,8 +89,6 @@ describe.only('generate', function() {
                 requestBody: {},
                 description: '',
                 'x-sdkMethodName': 'updateUser',
-                produces: [ 'application/json' ],
-                consumes: [ 'application/json' ],
                 parameters: [
                     {
                         in: "path",
@@ -156,7 +152,7 @@ describe.only('generate', function() {
             specs.should.have.property('v2.1').that.is.a('object');
             specs = specs['v2.1'];
             specs.should.have.property('openapi', '3.0.0');
-            specs.should.have.deep.property('info.title', 'appName');
+            specs.should.have.deep.property('info.title', 'bi-service API documentation');
             specs.should.have.deep.property('info.version', 'v2.1');
             specs.should.have.deep.property('servers').that.is.eql([{
                 url: '/article'
@@ -172,8 +168,6 @@ describe.only('generate', function() {
                 summary: 'Create an article',
                 description: '',
                 'x-sdkMethodName': 'createArticle',
-                produces: [ 'application/json' ],
-                consumes: [ 'application/json' ],
                 parameters: [],
                 requestBody: {
                     required: false,
@@ -224,8 +218,6 @@ describe.only('generate', function() {
                 summary: '',
                 description: '',
                 'x-sdkMethodName': 'deleteArticle',
-                produces: [ 'application/json' ],
-                consumes: [ 'application/json' ],
                 requestBody: {},
                 parameters: [
                     {

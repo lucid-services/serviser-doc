@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 * [CHANGED] replaced `swagger-ui` fronted with `ReDoc` modern frontend created with React
 * [CHANGED] upgraded to specification `OpenAPI v3.0.0`
+* [ADDED] `readme` configuration section which allows to append additional hand-written documentation to the begining of generated API documentation
 
 ## v1.1.3
 
