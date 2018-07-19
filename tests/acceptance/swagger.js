@@ -58,7 +58,12 @@ describe('generate', function() {
             specs.should.have.deep.property('info.title', 'bi-service API documentation');
             specs.should.have.deep.property('info.version', 'v1.0');
             specs.should.have.deep.property('servers').that.is.eql([{
-                url: '/user'
+                url: '{protocol}{host}{basePath}',
+                variables: {
+                    protocol: '',
+                    host: '',
+                    basePath: '/user'
+                }
             }]);
         });
 
@@ -155,7 +160,12 @@ describe('generate', function() {
             specs.should.have.deep.property('info.title', 'bi-service API documentation');
             specs.should.have.deep.property('info.version', 'v2.1');
             specs.should.have.deep.property('servers').that.is.eql([{
-                url: '/article'
+                url: '{protocol}{host}{basePath}',
+                variables: {
+                    protocol: '',
+                    host: '',
+                    basePath: '/article'
+                }
             }]);
         });
 
