@@ -5,8 +5,9 @@
   "description": "automated API documentation module",
   "main": "index.js",
   "scripts": {
-    "tests": "mocha --ui bdd --colors --check-leaks -t 5000 --reporter spec --parse-pos-args false  'tests/acceptance/**/*.js'",
-    "test": "npm run tests"
+    "test:acceptance": "mocha --ui bdd --colors --check-leaks -t 5000 --reporter spec --parse-pos-args false  'tests/acceptance/**/*.js'",
+    "test:unit": "mocha --ui bdd --colors --check-leaks -t 5000 --reporter spec  'tests/unit/**/*.js'",
+    "test": "npm run test:unit && npm run test:acceptance"
   },
   "testFramework": "mocha",
   "keywords": [
@@ -34,7 +35,10 @@
   },
   "dependencies": {
     "bi-ajv2swagger": "^0.2.5",
+    "json-schema-faker": "0.5.0-rc15",
+    "json5": "^1.0.1",
     "lodash": "^4.16.2",
+    "mustache": "^2.3.0",
     "yargs": "^8.0.0"
   },
   "license": "MIT",
