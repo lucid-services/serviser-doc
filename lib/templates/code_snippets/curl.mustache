@@ -1,8 +1,6 @@
-
 curl -X {{#toUpperCase}}{{{httpVerb}}}{{/toUpperCase}} {{{url}}} {{#hasHeadersOrBody}}\{{/hasHeadersOrBody}}
 {{#headers}}-H "{{{name}}}: {{{value}}}" {{^last}}\{{/last}}{{/headers}}
 {{#body}}-d @- << EOF
 {{{body}}}
-
 EOF
 {{/body}}
