@@ -76,18 +76,18 @@ describe('faker', function() {
                 route
             );
 
-            return faker.generateRoutePrameters(
+            const data = faker.generateRoutePrameters(
                 parameters.parameters,
                 parameters.requestBody.content['application/json'].schema
-            ).then(function(data) {
-                data.query.param1.should.match(/^.{2,10}$/);
-                data.query.param2.should.match(/^[a-z]{2,9}$/);
-                data.query.param3.should.match(/^.+@.+\..+$/);
-                data.path.id.should.be.a('number');
-                data.header['content-type'].should.be.equal('application/json');
-                data.body.username.should.be.a('string');
-                data.body.country.should.have.property('code_2').that.match(/^[A-Z]{2}$/);
-            });
+            );
+
+            data.query.param1.should.match(/^.{2,10}$/);
+            data.query.param2.should.match(/^[a-z]{2,9}$/);
+            data.query.param3.should.match(/^.+@.+\..+$/);
+            data.path.id.should.be.a('number');
+            data.header['content-type'].should.be.equal('application/json');
+            data.body.username.should.be.a('string');
+            data.body.country.should.have.property('code_2').that.match(/^[A-Z]{2}$/);
         });
     });
 });

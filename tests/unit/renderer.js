@@ -81,7 +81,7 @@ describe('renderer', function() {
                     '  }\n' +
                     '}\n' +
                     '\n' +
-                    'EOF\n\n';
+                    'EOF\n';
 
                 let url = 'http://127.0.0.1/api/v1.0/curl/12345?param1=test&param2=abcd&param3=test%40test.test';
                 let curl = renderer.renderCurlExample('post', url, this.data);
@@ -97,7 +97,7 @@ describe('renderer', function() {
                      'const axios = require(\'axios\');\n' +
                      '\n' +
                      'return axios.post({\n' +
-                     '  url: \'http://127.0.0.1/api/v1.0/curl/12345?param1=test&param2=abcd&param3=test%40test.test\',\n' +
+                     '  url: \'http://127.0.0.1/api/v1.0/curl/12345\',\n' +
                      '  headers: {\n' +
                      '    \'content-type\': \'application/json\',\n' +
                      '  },\n' +
@@ -124,7 +124,7 @@ describe('renderer', function() {
                      '  }\n' +
                      '});\n';
 
-                let url = 'http://127.0.0.1/api/v1.0/curl/12345?param1=test&param2=abcd&param3=test%40test.test';
+                let url = 'http://127.0.0.1/api/v1.0/curl/12345';
                 let curl = renderer.renderJavaScriptExample('post', url, this.data);
                 curl.should.eql(expected)
             });
