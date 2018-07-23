@@ -71,7 +71,7 @@ describe('renderer', function() {
 
             it('should generate valid curl command example', function() {
                 const expectedCurl =
-                    '\ncurl -X POST http://127.0.0.1/api/v1.0/curl/12345?param1=test&param2=abcd&param3=test%40test.test \\\n' +
+                    'curl -X POST http://127.0.0.1/api/v1.0/curl/12345?param1=test&param2=abcd&param3=test%40test.test \\\n' +
                     '-H "content-type: application/json" \\\n' +
                     '-d @- << EOF\n' +
                     '{\n' +
@@ -80,7 +80,6 @@ describe('renderer', function() {
                     '    "code_2": "US"\n' +
                     '  }\n' +
                     '}\n' +
-                    '\n' +
                     'EOF\n';
 
                 let url = 'http://127.0.0.1/api/v1.0/curl/12345?param1=test&param2=abcd&param3=test%40test.test';

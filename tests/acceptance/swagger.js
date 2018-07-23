@@ -60,15 +60,19 @@ describe('generate', function() {
             specs.should.have.deep.property('servers').that.is.eql([{
                 url: '{protocol}{host}{basePath}',
                 variables: {
-                    protocol: '',
-                    host: '',
-                    basePath: '/user'
+                    protocol: {default: ''},
+                    host: {default: ''},
+                    basePath: {default: '/user'}
                 }
             }]);
         });
 
         it('should include postUserRegister route in generated swagger specification', function() {
             var specs = this.specs['v1.0'];
+
+            specs.should.have.deep.property('paths./register.post.x-code-samples')
+                .that.is.an('array');
+            delete specs.paths['/register'].post['x-code-samples'];
 
             specs.should.have.deep.property('paths./register.post').that.is.eql({
                 operationId: 'postUserRegister_v1.0',
@@ -86,6 +90,10 @@ describe('generate', function() {
 
         it('should include putUser route in generated swagger specification', function() {
             var specs = this.specs['v1.0'];
+
+            specs.should.have.deep.property('paths./{id}.put.x-code-samples')
+                .that.is.an('array');
+            delete specs.paths['/{id}'].put['x-code-samples'];
 
             specs.should.have.deep.property('paths./{id}.put').that.is.eql({
                 operationId: 'putUser_v1.0',
@@ -162,15 +170,19 @@ describe('generate', function() {
             specs.should.have.deep.property('servers').that.is.eql([{
                 url: '{protocol}{host}{basePath}',
                 variables: {
-                    protocol: '',
-                    host: '',
-                    basePath: '/article'
+                    protocol: {default: ''},
+                    host: {default: ''},
+                    basePath: {default: '/article'}
                 }
             }]);
         });
 
         it('should include postArticle route in generated swagger specification', function() {
             var specs = this.specs['v2.1'];
+
+            specs.should.have.deep.property('paths./.post.x-code-samples')
+                .that.is.an('array');
+            delete specs.paths['/'].post['x-code-samples'];
 
             specs.should.have.deep.property('paths./.post').that.is.eql({
                 operationId: 'postArticle_v2.1',
@@ -221,6 +233,10 @@ describe('generate', function() {
 
         it('should include deleteArticle route in generated swagger specification', function() {
             var specs = this.specs['v2.1'];
+
+            specs.should.have.deep.property('paths./{id}.delete.x-code-samples')
+                .that.is.an('array');
+            delete specs.paths['/{id}'].delete['x-code-samples'];
 
             specs.should.have.deep.property('paths./{id}.delete').that.is.eql({
                 operationId: 'deleteArticle_v2.1',
