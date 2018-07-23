@@ -1,6 +1,6 @@
 {
   "name": "bi-service-doc",
-  "version": "2.0.0-dev.20180720.2",
+  "version": "2.0.0",
   "bin": "./bin/bi-service-doc.js",
   "description": "automated API documentation module",
   "main": "index.js",
