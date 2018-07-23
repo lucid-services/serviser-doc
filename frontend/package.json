@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": ".",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "mobx": "^5.0.3",
+    "query-string": "^5.1.1",
+    "rc-select": "^8.1.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4",
+    "redoc": "^2.0.0-alpha.31",
+    "webpack-bundle-analyzer": "^2.13.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
