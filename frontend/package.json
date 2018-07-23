@@ -11,7 +11,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4",
-    "redoc": "^2.0.0-alpha.30",
+    "redoc": "^2.0.0-alpha.31",
     "webpack-bundle-analyzer": "^2.13.1"
   },
   "scripts": {
