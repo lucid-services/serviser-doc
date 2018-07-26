@@ -4,11 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## FUTURE
+## v2.0.1
 
 * [FIXED] json-schema-faker was being given incorrect property schema value
 
-## 2.0.0
+## v2.0.0
 
 * [CHANGED] replaced `swagger-ui` fronted with `ReDoc` modern frontend created with React
 * [CHANGED] upgraded to specification `OpenAPI v3.0.0`

@@ -107,7 +107,7 @@ describe('generate', function() {
                         in: "path",
                         name: "id",
                         required: true,
-                        type: "string"
+                        schema: {type: 'string'}
                     }
                 ],
                 responses: {
@@ -250,7 +250,7 @@ describe('generate', function() {
                         in: "path",
                         name: "id",
                         required: true,
-                        type: "string"
+                        schema: {type: 'string'}
                     }
                 ],
                 responses: {
