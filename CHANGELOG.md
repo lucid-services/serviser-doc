@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## FUTURE
+## v2.0.2
 
 * [FIXED] semantic error - was trying to access a property path which might not exist while generating `x-code-samples`
 
