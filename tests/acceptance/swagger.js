@@ -81,7 +81,7 @@ describe('generate', function() {
                 description: 'User registration',
                 'x-sdkMethodName': 'postUserRegister',
                 parameters: [],
-                requestBody: {},
+                requestBody: {content: {}},
                 responses: {
                     '500': this.getInternalServerErrorResponseSpecs()
                 }
@@ -99,7 +99,7 @@ describe('generate', function() {
                 operationId: 'putUser_v1.0',
                 tags: ['user'],
                 summary: '',
-                requestBody: {},
+                requestBody: {content: {}},
                 description: '',
                 'x-sdkMethodName': 'updateUser',
                 parameters: [
@@ -125,138 +125,150 @@ describe('generate', function() {
                 url: '/article',
                 version: 2.1
             });
-
-            this.createArticleRoute = this.router.buildRoute({
-                url: '/',
-                sdkMethodName: 'createArticle',
-                summary: 'Create an article',
-                type: 'post'
-            });
-
-            this.createArticleRoute.respondsWith({
-                type: 'object',
-                properties: {
-                    title: {type: 'string'},
-                    content: {type: 'string'},
-                }
-            });
-
-            this.createArticleRoute.acceptsContentType('application/x-www-form-urlencoded');
-            this.createArticleRoute.validate({
-                type: 'object',
-                properties: {
-                    title: {type: 'string'},
-                    content: {type: 'string'},
-                }
-            }, 'body');
-
-            //
-            this.deleteArticleRoute = this.router.buildRoute({
-                url: '/:id',
-                type: 'delete'
-            });
-
-            this.specs = swagger.generate(this.app);
         });
 
-        it('should include swagger specification skeleton for v2.1 API', function() {
-            var specs = this.specs;
+        describe('a route without defined accepted content-type(s)', function() {
+            before(function() {
 
-            specs.should.have.property('v2.1').that.is.a('object');
-            specs = specs['v2.1'];
-            specs.should.have.property('openapi', '3.0.0');
-            specs.should.have.deep.property('info.title', 'bi-service API documentation');
-            specs.should.have.deep.property('info.version', 'v2.1');
-            specs.should.have.deep.property('servers').that.is.eql([{
-                url: '{protocol}{host}{basePath}',
-                variables: {
-                    protocol: {default: ''},
-                    host: {default: ''},
-                    basePath: {default: '/article'}
-                }
-            }]);
-        });
+                this.deleteArticleRoute = this.router.buildRoute({
+                    url: '/:id',
+                    type: 'delete'
+                });
 
-        it('should include postArticle route in generated swagger specification', function() {
-            var specs = this.specs['v2.1'];
+                this.specs = swagger.generate(this.app);
+            });
 
-            specs.should.have.deep.property('paths./.post.x-code-samples')
-                .that.is.an('array');
-            delete specs.paths['/'].post['x-code-samples'];
+            it('should include deleteArticle route in generated swagger specification', function() {
+                var specs = this.specs['v2.1'];
 
-            specs.should.have.deep.property('paths./.post').that.is.eql({
-                operationId: 'postArticle_v2.1',
-                tags: [ 'article' ],
-                summary: 'Create an article',
-                description: '',
-                'x-sdkMethodName': 'createArticle',
-                parameters: [],
-                requestBody: {
-                    required: false,
+                specs.should.have.deep.property('paths./{id}.delete.x-code-samples')
+                    .that.is.an('array');
+                delete specs.paths['/{id}'].delete['x-code-samples'];
+
+                specs.should.have.deep.property('paths./{id}.delete').that.is.eql({
+                    operationId: 'deleteArticle_v2.1',
+                    tags: [ 'article' ],
+                    summary: '',
                     description: '',
-                    content: {
-                        'application/x-www-form-urlencoded': {
-                            schema: {
-                                type: 'object',
-                                properties: {
-                                    title: {type: 'string'},
-                                    content: {type: 'string'}
-                                }
-                            }
+                    'x-sdkMethodName': 'deleteArticle',
+                    requestBody: {content: {}},
+                    parameters: [
+                        {
+                            in: "path",
+                            name: "id",
+                            required: true,
+                            schema: {type: 'string'}
                         }
+                    ],
+                    responses: {
+                        '500': this.getInternalServerErrorResponseSpecs()
                     }
-                },
-                responses: {
-                    '200': {
-                        description: " ",
+                });
+            });
+        });
+
+        describe('a route with defined accepted content-types', function() {
+            before(function() {
+                this.createArticleRoute = this.router.buildRoute({
+                    url: '/',
+                    sdkMethodName: 'createArticle',
+                    summary: 'Create an article',
+                    type: 'post'
+                });
+
+                this.createArticleRoute.respondsWith({
+                    type: 'object',
+                    properties: {
+                        title: {type: 'string'},
+                        content: {type: 'string'},
+                    }
+                });
+
+                this.createArticleRoute.acceptsContentType('application/x-www-form-urlencoded');
+                this.createArticleRoute.validate({
+                    type: 'object',
+                    properties: {
+                        title: {type: 'string'},
+                        content: {type: 'string'},
+                    }
+                }, 'body');
+
+                this.specs = swagger.generate(this.app);
+            });
+
+            it('should include swagger specification skeleton for v2.1 API', function() {
+                var specs = this.specs;
+
+                specs.should.have.property('v2.1').that.is.a('object');
+                specs = specs['v2.1'];
+                specs.should.have.property('openapi', '3.0.0');
+                specs.should.have.deep.property('info.title', 'bi-service API documentation');
+                specs.should.have.deep.property('info.version', 'v2.1');
+                specs.should.have.deep.property('servers').that.is.eql([{
+                    url: '{protocol}{host}{basePath}',
+                    variables: {
+                        protocol: {default: ''},
+                        host: {default: ''},
+                        basePath: {default: '/article'}
+                    }
+                }]);
+            });
+
+            it('should include postArticle route in generated swagger specification', function() {
+                var specs = this.specs['v2.1'];
+
+                specs.should.have.deep.property('paths./.post.x-code-samples')
+                    .that.is.an('array');
+                delete specs.paths['/'].post['x-code-samples'];
+
+                specs.should.have.deep.property('paths./.post').that.is.eql({
+                    operationId: 'postArticle_v2.1',
+                    tags: [ 'article' ],
+                    summary: 'Create an article',
+                    description: '',
+                    'x-sdkMethodName': 'createArticle',
+                    parameters: [],
+                    requestBody: {
+                        required: false,
+                        description: '',
                         content: {
-                            'application/json': {
+                            'application/x-www-form-urlencoded': {
                                 schema: {
+                                    type: 'object',
                                     properties: {
-                                      content: {
-                                        type: "string"
-                                      },
-                                      title: {
-                                        type: "string"
-                                      }
-                                    },
-                                    type: "object"
+                                        title: {type: 'string'},
+                                        content: {type: 'string'}
+                                    }
                                 }
                             }
                         }
                     },
-                    '400': this.getValidationErrorResponseSpecs(),
-                    '500': this.getInternalServerErrorResponseSpecs()
-                }
-            });
-        });
-
-        it('should include deleteArticle route in generated swagger specification', function() {
-            var specs = this.specs['v2.1'];
-
-            specs.should.have.deep.property('paths./{id}.delete.x-code-samples')
-                .that.is.an('array');
-            delete specs.paths['/{id}'].delete['x-code-samples'];
-
-            specs.should.have.deep.property('paths./{id}.delete').that.is.eql({
-                operationId: 'deleteArticle_v2.1',
-                tags: [ 'article' ],
-                summary: '',
-                description: '',
-                'x-sdkMethodName': 'deleteArticle',
-                requestBody: {},
-                parameters: [
-                    {
-                        in: "path",
-                        name: "id",
-                        required: true,
-                        schema: {type: 'string'}
+                    responses: {
+                        '200': {
+                            description: " ",
+                            content: {
+                                'application/json': {
+                                    schema: {
+                                        properties: {
+                                          content: {
+                                            type: "string"
+                                          },
+                                          title: {
+                                            type: "string"
+                                          }
+                                        },
+                                        type: "object"
+                                    }
+                                }
+                            }
+                        },
+                        '400': this.getValidationErrorResponseSpecs(),
+                        '500': this.getInternalServerErrorResponseSpecs()
                     }
-                ],
-                responses: {
-                    '500': this.getInternalServerErrorResponseSpecs()
-                }
+                });
             });
+
         });
+
     });
 });
