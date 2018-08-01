@@ -22,7 +22,6 @@
     "bin",
     "lib",
     "public",
-    "views",
     "index.js",
     "README.md",
     "CHANGELOG.md"
