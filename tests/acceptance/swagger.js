@@ -12,10 +12,11 @@ chai.use(sinonChai);
 chai.should();
 
 describe('generate', function() {
-    before(function() {
+    beforeEach(function() {
         var service = new Service.Service(Config);
         var conf = new Config.Config();
 
+        this.service = service;
         this.app = service.appManager.buildApp(conf, {name: 'appName'});
     });
 
@@ -23,8 +24,41 @@ describe('generate', function() {
         swagger.generate(this.app).should.be.eql({});
     });
 
+    describe('json-schema-faker is missing format keyword', function() {
+        beforeEach(function() {
+            this.app.getValidator().addFormat('test', function() {
+                return true;
+            });
+        });
+
+        it('should not fail with an Error', function() {
+            let app = this.app;
+            //fake doc http app
+            app.doc = this.service.appManager.buildApp(new Config.Config, {name: 'doc'});
+
+            let route = this.app.buildRouter({
+                url: '/faker',
+                version: 1
+            }).buildRoute({
+                url: '/',
+                type: 'post',
+            }).acceptsContentType('application/json').validate({
+                properties: {
+                    test: {
+                        type: 'string',
+                        format: 'test'
+                    }
+                }
+            }, 'body');
+
+            expect(function() {
+                swagger.generate(app);
+            }).to.not.throw(Error);
+        });
+    });
+
     describe('user router', function() {
-        before(function() {
+        beforeEach(function() {
             //router1
             this.router = this.app.buildRouter({
                 url: '/user',
@@ -119,7 +153,7 @@ describe('generate', function() {
     });
 
     describe('article router', function() {
-        before(function() {
+        beforeEach(function() {
             //router2
             this.router = this.app.buildRouter({
                 url: '/article',
@@ -128,7 +162,7 @@ describe('generate', function() {
         });
 
         describe('a route without defined accepted content-type(s)', function() {
-            before(function() {
+            beforeEach(function() {
 
                 this.deleteArticleRoute = this.router.buildRoute({
                     url: '/:id',
@@ -168,7 +202,7 @@ describe('generate', function() {
         });
 
         describe('a route with defined accepted content-types', function() {
-            before(function() {
+            beforeEach(function() {
                 this.createArticleRoute = this.router.buildRoute({
                     url: '/',
                     sdkMethodName: 'createArticle',

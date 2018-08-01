@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v2.0.3
+
+* [FIXED] Doc http app should not abort its initialization when generation of route `x-code-samples` fails. The failure should be handled gracefully.
+* [FIXED] consider custom json-schema `media-type` format (which bi-service introduced in `v1.6.2`) when generating `x-code-samples`
+
 ## v2.0.2
 
 * [FIXED] semantic error - was trying to access a property path which might not exist while generating `x-code-samples`
