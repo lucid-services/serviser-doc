@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## FUTURE
 
+* [FIXED] dont consider http application base path a candidate for operation tags - aka. the base url path the http application is running at should be excluded from http operation endpoint
 * [FIXED] include custom `x-app` (application name) property in generated OpenAPI specification info object
 
 ## v2.0.3
