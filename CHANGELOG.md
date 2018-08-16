@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v2.0.4
+
+* [FIXED] dont consider http application base path a candidate for operation tags - aka. the base url path the http application is running at should be excluded from http operation endpoint
+* [FIXED] include custom `x-app` (application name) property in generated OpenAPI specification info object
+
 ## v2.0.3
 
 * [FIXED] Doc http app should not abort its initialization when generation of route `x-code-samples` fails. The failure should be handled gracefully.

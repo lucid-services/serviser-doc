@@ -91,6 +91,7 @@ describe('generate', function() {
             specs.should.have.property('openapi', '3.0.0');
             specs.should.have.deep.property('info.title', 'bi-service API documentation');
             specs.should.have.deep.property('info.version', 'v1.0');
+            specs.should.have.deep.property('info.x-app', 'appName');
             specs.should.have.deep.property('servers').that.is.eql([{
                 url: '{protocol}{host}{basePath}',
                 variables: {
