@@ -50,6 +50,7 @@ require('bi-service-doc');
 
 - [Router](https://bohemiainteractive.github.io/bi-service/Router.html) & [Route](https://bohemiainteractive.github.io/bi-service/Route.html) definitions.
 - Validation schema definitions provided to the [route.validate](https://bohemiainteractive.github.io/bi-service/Route.html#validate) & [route.respondsWith](https://bohemiainteractive.github.io/bi-service/Route.html#respondsWith) methods.
+- Supported request `content-type(s)` as defined via [route.acceptsContentType](https://bohemiainteractive.github.io/bi-service/Route.html#acceptsContentType)
 - Custom `Ajv` keyword `$desc` which `bi-service` provides, can be used to describe individual request/response data properties in user defined `Route` validation schemas.
     ```javascript
     route.respondsWith({ //200 - OK response
