@@ -3,10 +3,12 @@
 This `bi-service` plugin generates documentation (`swagger-ui` like frontend) for `bi-service` Apps.  
 Here is how it works in few steps:
 
-* During service initialization, `App`s are fetched from `AppManager`
+* During service initialization, available `App`s are fetched from `AppManager`
 * Open API (OAS) REST API specification is generated from static route definitions
-* For each `App` in `AppManager`, corresponding `Doc` app (which serves  the documentation frontend) is created and pushed into internal `AppManager` stack
-* As `Doc` apps imlement the same interface of regular `App` object, the service initialization process continues as it would without any documentation being generated.
+* For each `App` in `AppManager`, corresponding (additional) `Doc` http app (which serves  the documentation frontend) is created and pushed into internal `AppManager` stack
+* As `Doc` http apps implement the same interface of generic http `App` object, the service initialization process continues as it would without any documentation being generated.
+
+![OpenAPI front-end screenshot](/public/openAPI-frontend.png?raw=true)
 
 ### USAGE
 
@@ -34,12 +36,10 @@ require('bi-service-doc');
             // provide the doc configuration section for each app you want
             // the documentation to be generated for
             doc: {
-                baseUrl: '127.0.0.1:3000',
+                baseUrl: 'http://127.0.0.1:3000',
                 listen: 3000,
-                name: 'docs',
                 title: 'User API',
-                stopOnError: true,
-                tryItOut: true
+                stopOnError: true
             }
         }
     }
