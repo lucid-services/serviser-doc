@@ -38,8 +38,12 @@ require('bi-service-doc');
             doc: {
                 baseUrl: 'http://127.0.0.1:3000',
                 listen: 3000,
-                title: 'User API',
-                stopOnError: true
+                title: 'User API', //optional
+                stopOnError: true, //optional
+                //allows us to include hand-crafted API description for each version
+                readme: { //optional
+                    'v2.0': 'lib/routes/v2.0/README.md'
+                }
             }
         }
     }
@@ -48,7 +52,7 @@ require('bi-service-doc');
 
 ### From what the docs are generated?
 
-- [Router](https://bohemiainteractive.github.io/bi-service/Router.html) & [Route](https://bohemiainteractive.github.io/bi-service/Route.html) definitions.
+- [Router](https://bohemiainteractive.github.io/bi-service/Router.html) & [Route](https://bohemiainteractive.github.io/bi-service/Route.html) definitions - more specifically `desc` & `summary` constructor options.
 - Validation schema definitions provided to the [route.validate](https://bohemiainteractive.github.io/bi-service/Route.html#validate) & [route.respondsWith](https://bohemiainteractive.github.io/bi-service/Route.html#respondsWith) methods.
 - Supported request `content-type(s)` as defined via [route.acceptsContentType](https://bohemiainteractive.github.io/bi-service/Route.html#acceptsContentType)
 - Custom `Ajv` keyword `$desc` which `bi-service` provides, can be used to describe individual request/response data properties in user defined `Route` validation schemas.
