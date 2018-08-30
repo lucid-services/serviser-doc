@@ -7,11 +7,11 @@
     "axios": "^0.18.0",
     "mobx": "^5.0.3",
     "query-string": "^5.1.1",
-    "rc-select": "^8.1.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "rc-select": "^8.2.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-scripts": "1.1.4",
-    "redoc": "^2.0.0-alpha.31",
+    "redoc": "2.0.0-alpha.38",
     "webpack-bundle-analyzer": "^2.13.1"
   },
   "scripts": {

@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## v2.0.5
+
+* [FIXED] `Redoc` upgraded to `2.0.0-alpha.38`
+* [FIXED] documentation updates
+
 ## v2.0.4
 
 * [FIXED] dont consider http application base path a candidate for operation tags - aka. the base url path the http application is running at should be excluded from http operation endpoint
