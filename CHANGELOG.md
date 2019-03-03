@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## FUTURE
 
 * [FIXED] update `json-schema-faker`
+* [FIXED] update frontend `redoc` package
 * [ADDED] hookup `fakerjs` package to `json-schema-faker` so its possible to define more accurate code examples
 
 ## v2.0.5
