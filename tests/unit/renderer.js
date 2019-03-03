@@ -30,14 +30,12 @@ describe('renderer', function() {
 
             let expected =
             '\n' +
-            '<details>\n' +
-            '    <summary>\n' +
-            '        URL summary\n' +
-            '    </summary>\n' +
+            '<details><summary> URL summary </summary>\n' +
             '\n' +
-            '    GET&ensp;&ensp;&ensp; [/api/v1.0/readme1](#operation/getReadme1_v1.0)  \n' +
-            '    POST&ensp;&ensp; [/api/v1.0/readme1](#operation/postReadme1_v1.0)  \n' +
-            '    DELETE [/api/v1.0/readme3](#operation/deleteReadme3_v1.0)  \n' +
+            '[GET&ensp;&ensp;&ensp; /api/v1.0/readme1](#operation/getReadme1_v1.0)  \n' +
+            '[POST&ensp;&ensp; /api/v1.0/readme1](#operation/postReadme1_v1.0)  \n' +
+            '[DELETE /api/v1.0/readme3](#operation/deleteReadme3_v1.0)  \n' +
+            '\n' +
             '</details>\n';
 
             renderer.renderMarkdownReadme(urlList).should.be.eql(expected);
