@@ -1,8 +1,8 @@
 var sinon     = require('sinon');
 var chai      = require('chai');
 var sinonChai = require("sinon-chai");
-var Config    = require('bi-config');
-var Service   = require('bi-service');
+var Config    = require('serviser-config');
+var Service   = require('serviser');
 
 var swagger = require('../../lib/swagger.js');
 
@@ -89,7 +89,7 @@ describe('generate', function() {
             specs.should.have.property('v1.0').that.is.a('object');
             specs = specs['v1.0'];
             specs.should.have.property('openapi', '3.0.0');
-            specs.should.have.deep.property('info.title', 'bi-service API documentation');
+            specs.should.have.deep.property('info.title', 'serviser API documentation');
             specs.should.have.deep.property('info.version', 'v1.0');
             specs.should.have.deep.property('info.x-app', 'appName');
             specs.should.have.deep.property('servers').that.is.eql([{
@@ -237,7 +237,7 @@ describe('generate', function() {
                 specs.should.have.property('v2.1').that.is.a('object');
                 specs = specs['v2.1'];
                 specs.should.have.property('openapi', '3.0.0');
-                specs.should.have.deep.property('info.title', 'bi-service API documentation');
+                specs.should.have.deep.property('info.title', 'serviser API documentation');
                 specs.should.have.deep.property('info.version', 'v2.1');
                 specs.should.have.deep.property('servers').that.is.eql([{
                     url: '{protocol}{host}{basePath}',

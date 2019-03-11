@@ -1,11 +1,11 @@
-var config  = require('bi-config');
-var service = require('bi-service');
+var config  = require('serviser-config');
+var service = require('serviser');
 var Doc     = require('./lib/doc.js').Doc;
 
 module.exports.Doc     = Doc;
 module.exports.swagger = require('./lib/swagger.js');
 
-//backward compatible with bi-service < 1.0.0
+//backward compatible with serviser < 1.0.0
 var App        = (service.common && service.common.App) || service.App;
 var AppManager = service.AppManager;
 

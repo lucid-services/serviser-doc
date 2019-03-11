@@ -1,4 +1,4 @@
-var service = require('bi-service');
+var service = require('serviser');
 
 before(function() {
     this.getInternalServerErrorResponseSpecs = function() {

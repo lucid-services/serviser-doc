@@ -7,7 +7,7 @@ var childProcess = require('child_process');
 
 function spawn(args, options) {
     options = options || {};
-    var cmd = path.normalize(__dirname + '/../../../bin/bi-service-doc.js');
+    var cmd = path.normalize(__dirname + '/../../../bin/serviser-doc.js');
     args.unshift(cmd);
 
     var result = childProcess.spawnSync('node', args, {
@@ -23,13 +23,13 @@ function spawn(args, options) {
     return result;
 }
 
-describe('bin/bi-service-doc', function() {
+describe('bin/serviser-doc', function() {
 
     it('should dump to stdout json swagger specification for all apps (app1 & app2)', function() {
         var result = spawn([
             'get:swagger',
             '--config',
-            path.resolve(__dirname + '/../../app/config.json5'),
+            path.resolve(__dirname + '/../../app/config.js'),
             '-f',
             './index.js'
         ], {
@@ -48,7 +48,7 @@ describe('bin/bi-service-doc', function() {
         var result = spawn([
             'get:swagger',
             '--config',
-            path.resolve(__dirname + '/../../app/config.json5'),
+            path.resolve(__dirname + '/../../app/config.js'),
             '-f',
             path.resolve(__dirname + '/../../app/index.js'),
         ]);
@@ -65,7 +65,7 @@ describe('bin/bi-service-doc', function() {
         var result = spawn([
             'get:swagger',
             '--config',
-            path.resolve(__dirname + '/../../app/config.json5'),
+            path.resolve(__dirname + '/../../app/config.js'),
             '-f',
             path.resolve(__dirname + '/../../app/index.js'),
             '-a',
@@ -80,11 +80,11 @@ describe('bin/bi-service-doc', function() {
         specs.should.not.have.property('app2');
     });
 
-    it('should fail with exit code: 66 when no bi-service app enterence file is found', function() {
+    it('should fail with exit code: 66 when no serviser app enterence file is found', function() {
         var result = spawn([
             'get:swagger',
             '--config',
-            path.resolve(__dirname + '/../../app/config.json5'),
+            path.resolve(__dirname + '/../../app/config.js'),
             '-f',
             path.resolve(__dirname + '/some/path/which/does/not/exist.js')
         ]);
@@ -93,11 +93,11 @@ describe('bin/bi-service-doc', function() {
         result.stderr.toString().should.match(/Cannot find module .+\/some\/path\/which\/does\/not\/exist.js/);
     });
 
-    it('should fail with exit code: 65 when provided bi-service app enterence file does not implement required interface', function() {
+    it('should fail with exit code: 65 when provided serviser app enterence file does not implement required interface', function() {
         var result = spawn([
             'get:swagger',
             '--config',
-            path.resolve(__dirname + '/../../app/config.json5'),
+            path.resolve(__dirname + '/../../app/config.js'),
             '-f',
             path.resolve(__dirname + '/../../../index.js')
         ]);

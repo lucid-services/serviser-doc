@@ -1,8 +1,8 @@
 #!/bin/sh
 ":" //# http://sambal.org/?p=1014 ; exec /usr/bin/env node --preserve-symlinks "$0" "$@"
 
-//disable parse-pos-args shell option of bi-config module
-//does not apply for bi-service>=1.0.0-alpha
+//disable parse-pos-args shell option of serviser-config module
+//does not apply for serviser>=1.0.0-alpha
 //@deprecated
 process.argv.push('--parse-pos-args');
 process.argv.push('false');
@@ -47,7 +47,7 @@ function cmdGetSwagger(argv) {
     try {
         require.resolve(argv.file);
         PROJECT_ROOT = getProjectRoot(path.dirname(argv.file));
-        require.resolve(path.resolve(PROJECT_ROOT + '/node_modules/bi-config'));
+        require.resolve(path.resolve(PROJECT_ROOT + '/node_modules/serviser-config'));
     } catch (e) {
         if (e.code !== 'MODULE_NOT_FOUND') {
             throw e;
@@ -55,7 +55,7 @@ function cmdGetSwagger(argv) {
         console.error(e.message);
         process.exit(66);
     }
-    config = require(path.resolve(PROJECT_ROOT + '/node_modules/bi-config'));
+    config = require(path.resolve(PROJECT_ROOT + '/node_modules/serviser-config'));
     config.initialize({fileConfigPath: argv.config});
 
     var file = require(argv.file);
@@ -63,7 +63,7 @@ function cmdGetSwagger(argv) {
     if (file && Object.getPrototypeOf(file).constructor.name === 'Service') {
         var service = file;
         //project root correction as otherwise it would point to the cwd
-        //the bin/bi-service-doc was executed from
+        //the bin/serviser-doc was executed from
         service.$setProjectRoot(path.dirname(argv.file));
         //project name = package.json -> name ... thus needs to be updated
         //after project root correction
