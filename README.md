@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/lucid-services/bi-service-doc.svg?branch=master)](https://travis-ci.org/lucid-services/bi-service-doc)   
+[![Build Status](https://travis-ci.org/lucid-services/serviser-doc.svg?branch=master)](https://travis-ci.org/lucid-services/serviser-doc)   
 
-This `bi-service` plugin generates documentation (`swagger-ui` like frontend) for `bi-service` Apps.  
+This `serviser` plugin generates documentation (`swagger-ui` like frontend) for `serviser` Apps.  
 Here is how it works in few steps:
 
 * During service initialization, available `App`s are fetched from `AppManager`
@@ -15,8 +15,8 @@ Here is how it works in few steps:
 * Hook up the plugin into your application in your app's `index.js` file:
 
 ```javascript
-const config  = require('bi-config');
-const Service = require('bi-service');
+const config  = require('serviser-config');
+const Service = require('serviser');
 
 //service initialization stuff...
 const service = new Service(config);
@@ -24,7 +24,7 @@ const service = new Service(config);
 //...
 
 //hook-up the plugin
-require('bi-service-doc');
+require('serviser-doc');
 ```
 
 * Enable automatic Doc app generation in your service `config.json5`:
@@ -52,10 +52,10 @@ require('bi-service-doc');
 
 ### From what the docs are generated?
 
-- [Router](https://lucid-services.github.io/bi-service/Router.html) & [Route](https://lucid-services.github.io/bi-service/Route.html) definitions - more specifically `desc` & `summary` constructor options.
-- Validation schema definitions provided to the [route.validate](https://lucid-services.github.io/bi-service/Route.html#validate) & [route.respondsWith](https://lucid-services.github.io/bi-service/Route.html#respondsWith) methods.
-- Supported request `content-type(s)` as defined via [route.acceptsContentType](https://lucid-services.github.io/bi-service/Route.html#acceptsContentType)
-- Custom `Ajv` keyword `$desc` which `bi-service` provides, can be used to describe individual request/response data properties in user defined `Route` validation schemas.
+- [Router](https://lucid-services.github.io/serviser/Router.html) & [Route](https://lucid-services.github.io/serviser/Route.html) definitions - more specifically `desc` & `summary` constructor options.
+- Validation schema definitions provided to the [route.validate](https://lucid-services.github.io/serviser/Route.html#validate) & [route.respondsWith](https://lucid-services.github.io/serviser/Route.html#respondsWith) methods.
+- Supported request `content-type(s)` as defined via [route.acceptsContentType](https://lucid-services.github.io/serviser/Route.html#acceptsContentType)
+- Custom `Ajv` keyword `$desc` which `serviser` provides, can be used to describe individual request/response data properties in user defined `Route` validation schemas.
     ```javascript
     route.respondsWith({ //200 - OK response
         type: 'object',
@@ -82,4 +82,4 @@ require('bi-service-doc');
     route.respondsWith(UnauthorizedError);
     ```
 
-Also see `bi-service` [Error management](https://lucid-services.github.io/bi-service/tutorial-1b.ErrorManagement.html)
+Also see `serviser` [Error management](https://lucid-services.github.io/serviser/tutorial-1b.ErrorManagement.html)
