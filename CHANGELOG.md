@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## v2.1.2
+
+* [FIXED] rename project from `bi-service-doc` to `serviser-doc`
+
 ## v2.1.1
 
 * [FIXED] fix tests
