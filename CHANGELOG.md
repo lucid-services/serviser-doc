@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## FUTURE
+
+* [FIXED] servers variables in generated OpenAPI specs should include non-standard server port as part of server host variable
+
 ## v2.1.2
 
 * [FIXED] rename project from `bi-service-doc` to `serviser-doc`
