@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
-## FUTURE
+## v2.1.3
 
 * [FIXED] servers variables in generated OpenAPI specs should include non-standard server port as part of server host variable
 
