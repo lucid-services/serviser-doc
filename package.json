@@ -1,6 +1,6 @@
 {
   "name": "serviser-doc",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "bin": "./bin/serviser-doc.js",
   "description": "automated API documentation module",
   "main": "index.js",
