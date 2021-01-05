@@ -4,7 +4,7 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "mobx": "^4.2.0",
     "query-string": "^5.1.1",
     "rc-select": "^8.2.0",
