@@ -43,7 +43,7 @@
     "serviser-ajv2swagger": "^0.3.0",
     "json-schema-faker": "0.5.0-rc16",
     "faker": "^4.1.0",
-    "json5": "^1.0.1",
+    "json5": "^2.2.2",
     "lodash": "^4.16.2",
     "mustache": "^2.3.0",
     "uuid": "^3.3.2",
